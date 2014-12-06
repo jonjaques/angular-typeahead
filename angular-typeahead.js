@@ -99,7 +99,9 @@ angular.module('siyfion.sfTypeahead', [])
             element.typeahead('destroy');
             element.typeahead(scope.options, scope.datasets)
             ngModel.$setViewValue(value);
-            element.triggerHandler('typeahead:opened');
+            if (value && value.length) {
+            	element.typeahead('open');
+            }
           }
         }
 
